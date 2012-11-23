@@ -1,0 +1,36 @@
+Matteo\LearnBundle\Entity\Cardbox:
+  type: entity
+  table: cardbox
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+    description:
+      type: string
+      length: 511
+    difficulty:
+      type: integer
+    is_private:
+      type: boolean
+      nullable: true
+    front_side:
+      type: string
+      length: 255
+    back_side:
+      type: string
+      length: 255
+  manyToOne:
+    category:
+      targetEntity: Category
+      inversedBy: cardbox
+      joinColumn:
+        name: category_id
+        referencedColumnName: id
+  oneToMany:
+    flashcard:
+        targetEntity: Flashcard
+        mappedBy: cardbox

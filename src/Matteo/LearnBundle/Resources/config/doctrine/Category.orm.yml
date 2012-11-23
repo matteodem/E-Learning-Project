@@ -1,0 +1,21 @@
+Matteo\LearnBundle\Entity\Category:
+  type: entity
+  table: category
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+    overview:
+      type: string
+      length: 511
+    description:
+      type: string
+      length: 1023
+  oneToMany:
+    cardbox:
+        targetEntity: Cardbox
+        mappedBy: category

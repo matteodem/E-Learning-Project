@@ -1,0 +1,30 @@
+learn_category:
+    pattern:  /
+    defaults: { _controller: "MatteoLearnBundle:Category:index" }
+
+learn_category_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MatteoLearnBundle:Category:show" }
+
+learn_category_new:
+    pattern:  /new
+    defaults: { _controller: "MatteoLearnBundle:Category:new" }
+
+learn_category_create:
+    pattern:  /create
+    defaults: { _controller: "MatteoLearnBundle:Category:create" }
+    requirements: { _method: post }
+
+learn_category_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MatteoLearnBundle:Category:edit" }
+
+learn_category_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MatteoLearnBundle:Category:update" }
+    requirements: { _method: post }
+
+learn_category_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MatteoLearnBundle:Category:delete" }
+    requirements: { _method: post }

@@ -1,0 +1,19 @@
+learn_homepage:
+    pattern: /
+    defaults: { _controller: MatteoLearnBundle:Main:index }  
+
+learn_about:
+    pattern: /about
+    defaults: { _controller: MatteoLearnBundle:Main:about }
+    
+learn_intro:
+    prefix:  /intro
+    resource: "@MatteoLearnBundle/Resources/config/routing/introduction.yml"
+    
+learn_category:
+    resource: "@MatteoLearnBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+learn_cardbox:
+        resource: "@MatteoLearnBundle/Resources/config/routing/cardbox.yml"
+        prefix:   /cardbox

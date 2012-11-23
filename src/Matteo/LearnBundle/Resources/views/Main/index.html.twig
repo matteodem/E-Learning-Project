@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block navigation %}
+{% endblock navigation %}
+
+{% block custom_styles %}
+<style type="text/css">
+    body {
+      padding-top: 30px;
+    }
+</style>
+{% endblock custom_styles %}
+
+{% block page_header %}
+  <!-- Main hero unit for a primary marketing message or call to action -->
+  <div class="header">
+    <h1>{% block headline %}E - Learning Platform{% endblock headline %}</h1>
+    <p>Check out our awesome <a href="{{ path('learn_cardbox') }}">cardboxes</a></p>
+  </div>
+{% endblock %}
+
+{% block content %}
+<p>Are you new? Get an introduction <a href="{{ path('learn_intro_homepage') }}">here</a>.</p>
+{% endblock content %}

@@ -1,0 +1,20 @@
+learn_intro_homepage:
+  pattern: /
+  defaults: { _controller: MatteoLearnBundle:Introduction:index }
+  
+learn_intro_getstarted:
+    pattern: /get-started
+    defaults: {_controller: MatteoLearnBundle:Introduction:getstarted }
+    
+learn_intro_courses:
+    pattern: /courses
+    defaults: {_controller: MatteoLearnBundle:Introduction:courses }
+    
+learn_intro_interaction:
+    pattern: /interaction
+    defaults: {_controller: MatteoLearnBundle:Introduction:interaction }
+    
+learn_intro_communication:
+    pattern: /communication
+    defaults: {_controller: MatteoLearnBundle:Introduction:communication }
+        

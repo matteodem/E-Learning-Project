@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% block html_tag %}
+<html>
+{% endblock html_tag %}
+
+{% block head %}
+<head>
+    <meta charset="UTF-8" />
+    {% block head_style %}
+    {% block custom_styles %}
+    <style type="text/css">
+        body {
+          padding-top: 60px;
+        }
+    </style>
+    {% endblock custom_styles %}
+    {% block stylesheets %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-responsive.css') }}" type="text/css" />
+    <!-- Own CSS -->
+    <link rel="stylesheet" href="{{ asset('bundles/matteolearn/css/main.css') }}" type="text/css" />
+    {% endblock stylesheets %}
+    {% endblock head_style %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block head_script %}
+    {% endblock head_script %}
+
+    <title>{% block title %}E - Learning Platform{% endblock title %}</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    {% block head_bottom %}
+    {% endblock head_bottom %}
+</head>
+{% endblock head %}
+
+{% block body_tag %}
+<body data-spy="scroll">
+{% endblock body_tag %}
+
+{% block body_start %}
+{% endblock body_start %}
+
+{% block body %}
+    {% block navigation %}
+    {% endblock navigation %}
+
+    {% block container %}
+    <div class="{% block container_class %}container{% endblock container_class %}">
+        {% block header %}
+        {% endblock header %}
+        <div class="content">
+            {% block page_header %}
+            {% endblock page_header %}
+
+            {% block content %}
+            <p>Where have you landed? This shouldn't exist mate!</p>
+            {% endblock content %}
+        </div>
+        <footer>
+            {% block footer %}
+            <hr />
+            <p>By Matteo De Micheli</p>
+            {% endblock footer %}
+        </footer>
+    </div> <!-- /container -->
+    {% endblock container %}
+    {% block foot_script %}
+    {# To only use a subset or add more js overwrite and copy paste this block
+    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
+    Otherwise the regeneration is done on every load in dev more with use_controller: true
+     #}
+     {% block javascripts %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+{% endblock foot_script %}
+{% endblock body %}
+</body>
+</html>

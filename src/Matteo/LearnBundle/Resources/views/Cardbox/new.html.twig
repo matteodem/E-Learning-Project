@@ -1,0 +1,20 @@
+{% extends 'MatteoLearnBundle::layout.html.twig' %}
+
+{% block content %}
+<h1>Cardbox creation</h1>
+
+<form action="{{ path('learn_cardbox_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button class="btn" type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('learn_cardbox') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock content %}

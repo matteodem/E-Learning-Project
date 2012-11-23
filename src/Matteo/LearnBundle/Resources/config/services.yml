@@ -1,0 +1,25 @@
+parameters:
+#    learn_language.example.class: Learn\LanguageBundle\Example
+
+services:
+    matteo_learn.menu_builder:
+        class: Matteo\LearnBundle\Menu\Builder
+        arguments: ["@knp_menu.factory"]
+
+    matteo_learn.menu.intro:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: matteo_learn.menu_builder
+        factory_method: createIntroMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: intro } # The alias is what is used to retrieve the menu
+            
+    matteo_learn.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: matteo_learn.menu_builder
+        factory_method: createMainMenu
+        arguments: ["@request"]
+        scope: request 
+        tags:
+            - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu

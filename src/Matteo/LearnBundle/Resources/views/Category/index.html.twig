@@ -1,0 +1,43 @@
+{% extends 'MatteoLearnBundle::layout.html.twig' %}
+
+{% block content %}
+<h1>All the Categories</h1>
+
+<table class="records_list table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Overview</th>
+            <th>Actions</th>
+            <th>Cardboxes</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('learn_category_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+            <td>{{ entity.overview }}</td>
+            <td>
+                <ul class="unstyled">
+                    <li>
+                        <a href="{{ path('learn_category_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('learn_category_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+            <td><button class="btn" href="#">Get them</button></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('learn_category_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock content %}

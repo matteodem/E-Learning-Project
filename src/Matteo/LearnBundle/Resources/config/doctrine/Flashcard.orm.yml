@@ -1,0 +1,26 @@
+Matteo\LearnBundle\Entity\Flashcard:
+  type: entity
+  table: flashcard
+  repositoryClass: Matteo\LearnBundle\Entity\FlashcardRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    front:
+      type: string
+      length: 255
+    back:
+      type: string
+      length: 255
+    declaration:
+      type: string
+      length: 511
+      nullable: true
+  manyToOne:
+    cardbox:
+      targetEntity: Cardbox
+      inversedBy: flashcard
+      joinColumn:
+        name: cardbox_id
+        referencedColumnName: id

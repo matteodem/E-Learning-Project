@@ -1,0 +1,35 @@
+learn_cardbox:
+    pattern:  /
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:index" }
+
+learn_cardbox_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:show" }
+
+learn_cardbox_new:
+    pattern:  /new
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:new" }
+
+learn_cardbox_create:
+    pattern:  /create
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:create" }
+    requirements: { _method: post }
+
+learn_cardbox_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:edit" }
+
+learn_cardbox_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:update" }
+    requirements: { _method: post }
+
+learn_cardbox_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:delete" }
+    requirements: { _method: post }
+    
+learn_cardbox_add_flashcards:
+    pattern:  /{id}/add-flashcards
+    defaults: { _controller: "MatteoLearnBundle:Flashcard:add" }
+    requirements: { _method: post }
