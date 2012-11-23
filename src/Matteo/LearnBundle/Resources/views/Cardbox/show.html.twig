@@ -22,15 +22,11 @@
             <td>{{ cardbox.difficulty }}</td>
         </tr>
         <tr>
-            <th>Is_private</th>
-            <td>{{ cardbox.isprivate }}</td>
-        </tr>
-        <tr>
-            <th>Front_side</th>
+            <th>Front Side</th>
             <td>{{ cardbox.frontside }}</td>
         </tr>
         <tr>
-            <th>Back_side</th>
+            <th>Back Side</th>
             <td>{{ cardbox.backside }}</td>
         </tr>
     </tbody>
@@ -47,6 +43,13 @@
             Edit
         </a>
     </li>
+    {% if cardbox.isprivate == 1 %}
+    <li>
+      <div class="alert">
+      This cardbox is set to private
+      </div>
+    </li>
+    {% endif %}
     <li>
         <form action="{{ path('learn_cardbox_delete', { 'id': cardbox.id }) }}" method="post">
             {{ form_widget(delete_form) }}
@@ -61,20 +64,18 @@
 {% if flashcards is empty %}
 <div class="alert">There are currently <strong>no Flashcards</strong> in this cardbox!</div>
 {% else %}
-<table class="records_list unstyled">
+<table class="records_list table">
     <thead>
         <tr>
-            <th>Front</th>
-            <th>Back</th>
-            <th>Declaration</th>
+            <th>Front ({{ cardbox.frontside }})</th>
+            <th>Back ({{ cardbox.backside }})</th>
         </tr>
     </thead>
     <tbody>
     {% for flashcard in flashcards %}
         <tr>
-            <td><a href="{{ path('learn_flashcard_show', { 'id': entity.id }) }}">{{ flashcard.front }}</a></td>
+            <td>{{ flashcard.front }}</td>
             <td>{{ flashcard.back }}</td>
-            <td>{{ flashcard.declaration }}</td>
         </tr>
     {% endfor %}
     </tbody>
