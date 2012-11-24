@@ -51,13 +51,12 @@
     </li>
     {% endif %}
     <li>
-        <form action="{{ path('learn_cardbox_delete', { 'id': cardbox.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button class="btn" type="submit">Delete</button>
-        </form>
         <form action="{{ path('learn_cardbox_add_flashcards', { 'id': cardbox.id }) }}" method="post">
             <button class="btn" type="submit">Add / Edit Flashcards</button>
         </form>
+    </li>
+    <li>
+      <button class="btn" href="#">Start learning</button>
     </li>
 </ul>
 

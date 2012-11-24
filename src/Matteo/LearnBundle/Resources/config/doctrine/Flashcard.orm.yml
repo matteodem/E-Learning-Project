@@ -1,7 +1,7 @@
 Matteo\LearnBundle\Entity\Flashcard:
   type: entity
-  table: flashcard
   repositoryClass: Matteo\LearnBundle\Entity\FlashcardRepository
+  table: flashcard
   id:
     id:
       type: integer
