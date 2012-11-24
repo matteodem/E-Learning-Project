@@ -1,5 +1,6 @@
 Matteo\LearnBundle\Entity\Cardbox:
   type: entity
+  repositoryClass: Matteo\LearnBundle\Entity\CardboxRepository
   table: cardbox
   id:
     id:

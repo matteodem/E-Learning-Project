@@ -7,9 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\ORM\EntityRepository;
 
 use Matteo\LearnBundle\Entity\Cardbox;
+use Matteo\LearnBundle\Form\CardboxType;
+use Matteo\LearnBundle\Form\CardboxRepository;
 use Matteo\LearnBundle\Entity\Flashcard;
 use Matteo\LearnBundle\Entity\FlashcardRepository;
-use Matteo\LearnBundle\Form\CardboxType;
 
 /**
  * Cardbox controller.
@@ -25,7 +26,7 @@ class CardboxController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MatteoLearnBundle:Cardbox')->findAll();
+        $entities = $em->getRepository('MatteoLearnBundle:Cardbox')->findAllPublicCardboxes();
 
         return $this->render('MatteoLearnBundle:Cardbox:index.html.twig', array(
             'entities' => $entities,
@@ -48,12 +49,10 @@ class CardboxController extends Controller
         
         $flashcards = $em->getRepository('MatteoLearnBundle:Flashcard')->findFlashcardsWithCardbox($id);
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('MatteoLearnBundle:Cardbox:show.html.twig', array(
             'cardbox'      => $cardbox,
             'flashcards'   => $flashcards,
-            'delete_form'  => $deleteForm->createView(),        ));
+        ));
     }
 
     /**
