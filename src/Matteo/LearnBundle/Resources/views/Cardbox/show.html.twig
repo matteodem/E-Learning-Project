@@ -55,7 +55,7 @@
     </li>
     {% endif %}
     <li>
-        <form action="{{ path('learn_cardbox_add_flashcards', { 'id': cardbox.id }) }}" method="post">
+        <form action="{{ path('learn_cardbox_edit_flashcards', { 'id': cardbox.id }) }}" method="post">
             <button class="btn" type="submit">Add / Edit Flashcards</button>
         </form>
     </li>
@@ -67,7 +67,7 @@
 {% if flashcards is empty %}
 <div class="alert">There are currently <strong>no Flashcards</strong> in this cardbox!</div>
 {% else %}
-<table class="records_list table">
+<table class="records_list table table-hover">
     <thead>
         <tr>
             <th>Front ({{ cardbox.frontside }})</th>

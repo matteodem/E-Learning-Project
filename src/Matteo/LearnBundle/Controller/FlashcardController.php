@@ -34,7 +34,7 @@ class FlashcardController extends Controller
         $flashcards = $em->getRepository('MatteoLearnBundle:Flashcard')->findFlashcardsWithCardbox($id);
         // If there aren't any, just display the form without any prerenderd forms
         if (!$flashcards) {
-            return $this->render('MatteoLearnBundle:Flashcard:addCards.html.twig', array(
+            return $this->render('MatteoLearnBundle:Flashcard:editCards.html.twig', array(
                 'entity' => $entity,
                 'form'   => $newFlashcardForm->createView(),
                 'cardbox'=> $currentCardbox,
@@ -52,7 +52,7 @@ class FlashcardController extends Controller
             $forms[] = $form;
         }
         
-        return $this->render('MatteoLearnBundle:Flashcard:addCards.html.twig', array(
+        return $this->render('MatteoLearnBundle:Flashcard:editCards.html.twig', array(
             'entity' => $entity,
             'forms'  => $forms,
             'form'   => $newFlashcardForm->createView(),

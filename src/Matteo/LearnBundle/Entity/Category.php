@@ -23,6 +23,11 @@ class Category
      * @var string
      */
     private $description;
+    
+    /**
+     * @var string
+     */
+    private $overview;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -133,11 +138,6 @@ class Category
     {
         return $this->cardbox;
     }
-    /**
-     * @var string
-     */
-    private $overview;
-
 
     /**
      * Set overview

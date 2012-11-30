@@ -9,9 +9,8 @@
             <th>Name</th>
             <th>Category</th>
             <th>Difficulty</th>
-            <th>Front Side Content</th>
-            <th>Back Side Content</th>
-            <th>Actions</th>
+            <th class="hidden-phone">Front Side Content</th>
+            <th class="hidden-phone">Back Side Content</th>
             <th>Learn</th>
         </tr>
     </thead>
@@ -21,16 +20,9 @@
             <td><a href="{{ path('learn_cardbox_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
             <td>{{ entity.category }}</td>
             <td>{{ entity.difficulty }}</td>
-            <td>{{ entity.frontside }}</td>
-            <td>{{ entity.backside }}</td>
-            <td>
-                <ul class="unstyled">
-                    <li>
-                        <a href="{{ path('learn_cardbox_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-            <td><button class="btn" href="#">Start learning</button></td>
+            <td class="hidden-phone">{{ entity.frontside }}</td>
+            <td class="hidden-phone">{{ entity.backside }}</td>
+            <td><button class="btn" href="#">Learn it</button></td>
         </tr>
     {% endfor %}
     </tbody>

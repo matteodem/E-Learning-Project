@@ -2,6 +2,13 @@ parameters:
 #    learn_language.example.class: Learn\LanguageBundle\Example
 
 services:
+  
+    matteo_learn.admin.category:
+        class: Matteo\LearnBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Learn, label: Categories }
+        arguments: [null, Matteo\LearnBundle\Entity\Category, MatteoLearnBundle:CategoryAdmin]
+        
     matteo_learn.menu_builder:
         class: Matteo\LearnBundle\Menu\Builder
         arguments: ["@knp_menu.factory"]

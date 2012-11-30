@@ -27,19 +27,8 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('learn_category') }}">
-            Back to the list
+            Back to the Overview
         </a>
-    </li>
-    <li>
-        <a href="{{ path('learn_category_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('learn_category_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button class="btn" type="submit">Delete</button>
-        </form>
     </li>
 </ul>
 {% endblock content %}
