@@ -15,7 +15,7 @@ class CardboxRepository extends EntityRepository
     public function findAllPublicCardboxes() 
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT p FROM MatteoLearnBundle:Cardbox p WHERE p.is_private is NULL')
+                    ->createQuery('SELECT p FROM MatteoLearnBundle:Cardbox p WHERE p.is_private = 0 OR p.is_private IS NULL')
                     ->getResult();
     }
 }

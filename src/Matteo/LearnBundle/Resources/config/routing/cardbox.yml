@@ -36,5 +36,5 @@ learn_cardbox_add_flashcards:
     
 learn_cardbox_create_flashcards:
     pattern:  /{id}/create-flashcards
-    defaults: { _controller: "MatteoLearnBundle:Flashcard:create" }
+    defaults: { _controller: "MatteoLearnBundle:Flashcard:update" }
     requirements: { _method: post }

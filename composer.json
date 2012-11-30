@@ -19,8 +19,12 @@
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
         "knplabs/knp-paginator-bundle": "dev-master",
-        "knplabs/knp-menu-bundle": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "knplabs/knp-menu-bundle": ">=1.1.0,<2.0.x-dev",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "sonata-project/cache-bundle": "dev-master",
+        "sonata-project/block-bundle": "dev-master",
+        "sonata-project/jquery-bundle": "dev-master",
+        "sonata-project/admin-bundle": "dev-master"
     },
     "repositories": [
            {

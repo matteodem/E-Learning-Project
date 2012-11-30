@@ -1,20 +1,42 @@
 {% extends 'MatteoLearnBundle::layout.html.twig' %}
 
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('media/css/main.css') }}" type="text/css" />
+{% endblock stylesheets %}
+
 {% block content %}
 <h1>Flashcard Creation for '{{ cardbox.name }}'</h1>
 
-<form action="{{ path('learn_cardbox_create_flashcards', { 'id': cardbox.id }) }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button class="btn" type="submit">Create</button>
-    </p>
+<form action="{{ path('learn_cardbox_create_flashcards', { 'id': cardbox.id }) }}" method="post" {{ form_enctype(form) }}
+  id="addFlashcardsForm" >
+    
+  {% if forms is defined %}
+    {% for key, form in forms %}
+      {# Form for all existing Flashcards #}
+      <div class="row">
+        <h2>Card Number {{ key }}</h2>
+        {{ form_widget(form) }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  <div class="row">
+  {# A new Flashcard Form #}
+  <h2>New Cards</h2>
+  {{ form_widget(form) }}
+  <p>
+      <button class="btn" type="submit">Create</button>
+  </p>
+  </div>
 </form>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('learn_cardbox_show', { 'id': cardbox.id }) }}">
-            Back to the cardbox
-        </a>
-    </li>
-</ul>
+<div class="row">
+  <ul class="record_actions unstyled">
+      <li>
+          <a href="{{ path('learn_cardbox_show', { 'id': cardbox.id }) }}">
+              Back to the cardbox
+          </a>
+      </li>
+  </ul>
+</div>
 {% endblock content %}

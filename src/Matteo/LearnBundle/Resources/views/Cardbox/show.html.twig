@@ -18,6 +18,10 @@
             <td>{{ cardbox.description }}</td>
         </tr>
         <tr>
+            <th>Category</th>
+            <td>{{ cardbox.category }}</td>
+        </tr>
+        <tr>
             <th>Difficulty</th>
             <td>{{ cardbox.difficulty }}</td>
         </tr>
@@ -35,12 +39,12 @@
 <ul class="record_actions unstyled">
     <li>
         <a href="{{ path('learn_cardbox') }}">
-            Back to the list
+            Back to the Overview
         </a>
     </li>
     <li>
         <a href="{{ path('learn_cardbox_edit', { 'id': cardbox.id }) }}">
-            Edit
+            Edit Cardbox
         </a>
     </li>
     {% if cardbox.isprivate == 1 %}

@@ -1,0 +1,5 @@
+Matteo\LearnBundlee\Entity\Cardbox:
+    properties:
+        difficulty:
+            - Max: { limit: 10, message: The maximum value for difficulty is 10. }
+            - Min: { limit: 1, message: It can't be easier than 1'. }

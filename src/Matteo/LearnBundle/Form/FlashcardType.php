@@ -8,11 +8,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FlashcardType extends AbstractType
 {
+    private $name = 'learn_flashcard';
+    
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('front')
-            ->add('back')
+            ->add('front', null, array(
+                'attr' => array('class' => 'front')))
+            ->add('back', null, array(
+                    'attr' => array('class' => 'back')))
             ->add('declaration', 'textarea')
         ;
     }
@@ -26,6 +30,10 @@ class FlashcardType extends AbstractType
 
     public function getName()
     {
-        return 'learn_linguabundle_flashcardtype';
+        return $this->name;
+    }
+    
+    public function setName($name){
+        $this->name = $name;
     }
 }

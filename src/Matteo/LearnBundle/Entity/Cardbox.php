@@ -265,4 +265,12 @@ class Cardbox
     {
         return $this->category;
     }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setSlugValue()
+    {
+        // Add your code here
+    }
 }
