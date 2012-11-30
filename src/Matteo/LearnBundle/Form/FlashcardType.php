@@ -17,7 +17,9 @@ class FlashcardType extends AbstractType
                 'attr' => array('class' => 'front')))
             ->add('back', null, array(
                     'attr' => array('class' => 'back')))
-            ->add('declaration', 'textarea')
+            ->add('declaration', 'textarea', array(
+                    'attr' => array('class' => 'flashTextarea', 
+                                    'rows' => 3)))
         ;
     }
 

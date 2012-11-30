@@ -10,20 +10,46 @@
 
 <form action="{{ path('learn_cardbox_create_flashcards', { 'id': cardbox.id }) }}" method="post" {{ form_enctype(form) }}
   id="addFlashcardsForm" >
-    
-  {% if forms is defined %}
-    {% for key, form in forms %}
-      {# Form for all existing Flashcards #}
-      <div class="row">
-        <h2>Card Number {{ key }}</h2>
-        {{ form_widget(form) }}
-      </div>
-    {% endfor %}
-  {% endif %}
+  
   <div class="row">
-  {# A new Flashcard Form #}
-  <h2>New Cards</h2>
-  {{ form_widget(form) }}
+    <table class="table">
+      <tr>
+        <th>Front</th>
+        <th>Back</th>
+        <th>Declaration</th>
+      </tr>
+      {% if forms is defined %}
+      {% for key, form in forms %}
+      {# Form for all existing Flashcards #}
+      <tr>
+        <td>
+          {{ form_widget(form.front) }}
+        </td>
+        <td>
+          {{ form_widget(form.back) }}
+        </td>
+        <td>
+          {{ form_widget(form.declaration) }}
+        </td>
+      </tr>
+      {# TODO: Make the cards deletable with a delete button (javascript) #}
+      {% endfor %}
+      {% endif %}
+      {# A new Flashcard Form #}
+      <tr>
+        <td>
+          {{ form_widget(form.front) }}
+        </td>
+        <td>
+          {{ form_widget(form.back) }}
+        </td>
+        <td>
+          {{ form_widget(form.declaration) }}
+        </td>
+      {# TODO: Make it possible to add new cards with a + button #}
+      </tr>
+    </table>
+  </div>
   <p>
       <button class="btn" type="submit">Create</button>
   </p>

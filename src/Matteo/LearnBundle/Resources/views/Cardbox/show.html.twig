@@ -76,7 +76,7 @@
     </thead>
     <tbody>
     {% for flashcard in flashcards %}
-        <tr>
+        <tr class='popoverDeclaration' rel='popover' data-title='Explanation of {{ flashcard.front }}' data-content='{{ flashcard.declaration }}'>
             <td>{{ flashcard.front }}</td>
             <td>{{ flashcard.back }}</td>
         </tr>
@@ -85,3 +85,7 @@
 </table>
 {% endif %}
 {% endblock content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/matteolearn/js/cardbox.js') }}"></script>
+{% endblock %}

@@ -72,9 +72,13 @@
     Otherwise the regeneration is done on every load in dev more with use_controller: true
      #}
      {% block javascripts %}
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    {% endblock %}
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+     <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+     {% endblock %}
+     
+     {% block custom_javascripts %}
+     {% endblock %}
+    
 {% endblock foot_script %}
 {% endblock body %}
 </body>
