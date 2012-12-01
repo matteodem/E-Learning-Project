@@ -76,7 +76,12 @@
     </thead>
     <tbody>
     {% for flashcard in flashcards %}
-        <tr class='popoverDeclaration' rel='popover' data-title='Explanation of {{ flashcard.front }}' data-content='{{ flashcard.declaration }}'>
+        <tr class='popoverDeclaration' rel='popover' data-title='Explanation of {{ flashcard.front }}' 
+          data-content='{% if flashcard.declaration|length > 140 %} 
+                          {{ flashcard.declaration|slice(0, 140) }}...
+                        {% else %}
+                          {{ flashcard.declaration }}
+                        {% endif %}'>
             <td>{{ flashcard.front }}</td>
             <td>{{ flashcard.back }}</td>
         </tr>

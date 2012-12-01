@@ -17,11 +17,12 @@
         <th>Front</th>
         <th>Back</th>
         <th>Declaration</th>
+        <th>Delete</th>
       </tr>
       {% if forms is defined %}
       {% for key, form in forms %}
       {# Form for all existing Flashcards #}
-      <tr>
+      <tr class="cardRow">
         <td>
           {{ form_widget(form.front) }}
         </td>
@@ -31,12 +32,14 @@
         <td>
           {{ form_widget(form.declaration) }}
         </td>
+        <td>
+          <a href="#" class="deleteFlashcard"><i class="icon-remove"></i></a>
+        </td>
       </tr>
-      {# TODO: Make the cards deletable with a delete button (javascript) #}
       {% endfor %}
       {% endif %}
       {# A new Flashcard Form #}
-      <tr>
+      <tr id="hiddenCardRow" class="newCardRow hidden">
         <td>
           {{ form_widget(form.front) }}
         </td>
@@ -46,12 +49,19 @@
         <td>
           {{ form_widget(form.declaration) }}
         </td>
-      {# TODO: Make it possible to add new cards with a + button #}
+        <td>
+          <a href="#" class="deleteFlashcard"><i class="icon-remove"></i></a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <a href="#" class="createNewFlashcard"><i class="icon-plus-sign"></i></a>
+        </td>
       </tr>
     </table>
   </div>
   <p>
-      <button class="btn" type="submit">Create</button>
+      <button class="btn" id="editCardsButton" type="submit">Create</button>
   </p>
   </div>
 </form>
@@ -66,3 +76,7 @@
   </ul>
 </div>
 {% endblock content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/matteolearn/js/flashcard.js') }}"></script>
+{% endblock %}

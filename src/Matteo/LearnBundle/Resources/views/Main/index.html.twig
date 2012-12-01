@@ -13,12 +13,12 @@
 
 {% block page_header %}
   <!-- Main hero unit for a primary marketing message or call to action -->
-  <div class="header">
-    <h1>{% block headline %}E - Learning Platform{% endblock headline %}</h1>
-    <p>Check out our awesome <a href="{{ path('learn_cardbox') }}">cardboxes</a></p>
+  <div class="page-header">
+    <h1>{% block headline %}E - Learning Platform{% endblock headline %} <small>Only with Cardboxes</small></h1>
   </div>
 {% endblock %}
 
 {% block content %}
+<p>Check out our awesome <a href="{{ path('learn_cardbox') }}">cardboxes</a></p>
 <p>Are you new? Get an introduction <a href="{{ path('learn_intro_homepage') }}">here</a>.</p>
 {% endblock content %}

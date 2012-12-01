@@ -1,1 +1,1 @@
-$('.tooltipDeclaration').tooltip();
+$('.popoverDeclaration').popover({ placement: 'top', trigger: 'hover'});

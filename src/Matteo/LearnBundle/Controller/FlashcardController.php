@@ -77,43 +77,26 @@ class FlashcardController extends Controller
         $flashcards = $em->getRepository('MatteoLearnBundle:Flashcard')->findFlashcardsWithCardbox($id);
         
         if ($flashcards) {
-            // A counter variable
-            $count = 0;
-            
             // Delete all existing entries
             foreach ($flashcards as $flashcard) {
                 $em->remove($flashcard);
             }
-            
-            // Then create a form and add the new (edited) and / or deleted cards
-            while ($flash = $request->request->get('learn_flashcard_' . $count)) {
-                $flashcard = new Flashcard();
-                $flashcard->setFront($flash['front']);
-                $flashcard->setBack($flash['back']);
-                $flashcard->setDeclaration($flash['declaration']);
-                $flashcard->setCardbox($currentCardbox);
-                
-                $em->persist($flashcard);
-                $count++;
-            }
         }
         
-        // Create a form to add the existing cards
-        $count = 0;
-        
-        while ($flash = $request->request->get('learn_flashcard_new' . $count)) {
+        // Add all edited + new cards
+        $newCards = $request->request->all();
+
+        foreach($newCards as $card) {
             // Create new database entry
             $flashcard = new Flashcard();
-            $flashcard->setFront($flash['front']);
-            $flashcard->setBack($flash['back']);
-            $flashcard->setDeclaration($flash['declaration']);
+            $flashcard->setFront($card['front']);
+            $flashcard->setBack($card['back']);
+            $flashcard->setDeclaration($card['declaration']);
             $flashcard->setCardbox($currentCardbox);
             
             $em->persist($flashcard);
-            $count++;
         }
         
-        /* TODO: Can't handle more than 200 cards */
         // Finally flush everything
         $em->flush();
         
