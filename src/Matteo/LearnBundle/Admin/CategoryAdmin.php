@@ -20,8 +20,8 @@ class CategoryAdmin extends Admin
     {
         $formMapper
             ->add('name')
-            ->add('description')
             ->add('overview')
+            ->add('description', 'textarea')
         ;
     }
 
@@ -29,8 +29,8 @@ class CategoryAdmin extends Admin
     {
         $datagridMapper
             ->add('name')
-            ->add('description')
             ->add('overview')
+            ->add('description')
         ;
     }
 
@@ -38,8 +38,8 @@ class CategoryAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('description')
             ->add('overview')
+            ->add('description')
         ;
     }
 }
