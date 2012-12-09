@@ -6,17 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FlashcardControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/lingua_flashcard/');
+        $crawler = $client->request('GET', '/cardbox/10/show');
         $this->assertTrue(200 === $client->getResponse()->getStatusCode());
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
-
+        $crawler = $client->click($crawler->selectLink('Add / Edit Flashcards')->link());
+        
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
             'learn_linguabundle_flashcardtype[field_name]'  => 'Test',
@@ -50,6 +49,4 @@ class FlashcardControllerTest extends WebTestCase
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
-
-    */
 }

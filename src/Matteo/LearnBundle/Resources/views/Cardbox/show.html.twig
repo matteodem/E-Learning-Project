@@ -3,38 +3,7 @@
 {% block content %}
 <h1>Cardbox</h1>
 
-<table class="record_properties table ">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ cardbox.id }}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{ cardbox.name }}</td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td>{{ cardbox.description }}</td>
-        </tr>
-        <tr>
-            <th>Category</th>
-            <td>{{ cardbox.category }}</td>
-        </tr>
-        <tr>
-            <th>Difficulty</th>
-            <td>{{ cardbox.difficulty }}</td>
-        </tr>
-        <tr>
-            <th>Front Side</th>
-            <td>{{ cardbox.frontside }}</td>
-        </tr>
-        <tr>
-            <th>Back Side</th>
-            <td>{{ cardbox.backside }}</td>
-        </tr>
-    </tbody>
-</table>
+{% include 'MatteoLearnBundle:Cardbox:cardboxTable.html.twig' %}
 
 <ul class="record_actions unstyled">
     <li>
@@ -60,7 +29,7 @@
         </form>
     </li>
     <li>
-      <button class="btn" href="#">Start learning</button>
+      <a href="{{ path('learn_cardbox_learn_flashcards', { 'id': cardbox.id }) }}"><button class="btn">Start learning</button></a>
     </li>
 </ul>
 
@@ -92,5 +61,5 @@
 {% endblock content %}
 
 {% block custom_javascripts %}
-<script type="text/javascript" src="{{ asset('bundles/matteolearn/js/cardbox.js') }}"></script>
+<script type="text/javascript" src="{{ asset('media/js/cardbox.js') }}"></script>
 {% endblock %}

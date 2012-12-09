@@ -1,2 +1,135 @@
-div[id^="learn_flashcard"] {
+/* Styles for Learning Cards - Cube */
+.controls {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.flashcardContainer {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  border: 1px solid #CCC;
+  -webkit-perspective: 1000px;
+     -moz-perspective: 1000px;
+       -o-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.flashcardContainer div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+       -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+     -moz-transition: -moz-transform 1s;
+       -o-transition: -o-transform 1s;
+          transition: transform 1s;
+}
+
+.flashcardContainer div figure {
+  display: block;
+  position: absolute;
+  width: 296px;
+  height: 296px;
+  border: 2px solid black;
+  text-align: center;
+  margin: 0;
+}
+
+.flashcardContainer div figure p {
+    vertical-align: middle;
+    padding: 20px;
+}
+
+.flashcardContainer div.panels-backface-invisible figure {
+  -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+       -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.flashcardContainer div .frontSide  { background: white; }
+.flashcardContainer div .backSide   { background: white; }
+.flashcardContainer div .rightSide  { background: white; }
+.flashcardContainer div .leftSide   { background: white; }
+.flashcardContainer div .topSide    { background: white; }
+.flashcardContainer div .bottomSide { background: white; }
+
+.flashcardContainer div .frontSide  {
+  -webkit-transform: translateZ( 150px );
+     -moz-transform: translateZ( 150px );
+       -o-transform: translateZ( 150px );
+          transform: translateZ( 150px );
+}
+.flashcardContainer div .backSide  {
+  -webkit-transform: rotateX( -180deg ) translateZ( 150px );
+     -moz-transform: rotateX( -180deg ) translateZ( 150px );
+       -o-transform: rotateX( -180deg ) translateZ( 150px );
+          transform: rotateX( -180deg ) translateZ( 150px );
+}
+.flashcardContainer div .rightSide {
+  -webkit-transform: rotateY(   90deg ) translateZ( 150px );
+     -moz-transform: rotateY(   90deg ) translateZ( 150px );
+       -o-transform: rotateY(   90deg ) translateZ( 150px );
+          transform: rotateY(   90deg ) translateZ( 150px );
+}
+.flashcardContainer div .leftSide {
+  -webkit-transform: rotateY(  -90deg ) translateZ( 150px );
+     -moz-transform: rotateY(  -90deg ) translateZ( 150px );
+       -o-transform: rotateY(  -90deg ) translateZ( 150px );
+          transform: rotateY(  -90deg ) translateZ( 150px );
+}
+.flashcardContainer div .topSide {
+  -webkit-transform: rotateX(   90deg ) translateZ( 150px );
+     -moz-transform: rotateX(   90deg ) translateZ( 150px );
+       -o-transform: rotateX(   90deg ) translateZ( 150px );
+          transform: rotateX(   90deg ) translateZ( 150px );
+}
+.flashcardContainer div .bottomSide {
+  -webkit-transform: rotateX(  -90deg ) translateZ( 150px );
+     -moz-transform: rotateX(  -90deg ) translateZ( 150px );
+       -o-transform: rotateX(  -90deg ) translateZ( 150px );
+          transform: rotateX(  -90deg ) translateZ( 150px );
+}
+
+.flashcardContainer div.show-front {
+  -webkit-transform: translateZ( -150px );
+     -moz-transform: translateZ( -150px );
+       -o-transform: translateZ( -150px );
+          transform: translateZ( -150px );
+}
+.flashcardContainer div.show-back {
+  -webkit-transform: translateZ( -150px ) rotateX( -180deg );
+     -moz-transform: translateZ( -150px ) rotateX( -180deg );
+       -o-transform: translateZ( -150px ) rotateX( -180deg );
+          transform: translateZ( -150px ) rotateX( -180deg );
+}
+.flashcardContainer div.show-right {
+  -webkit-transform: translateZ( -150px ) rotateY(  -90deg );
+     -moz-transform: translateZ( -150px ) rotateY(  -90deg );
+       -o-transform: translateZ( -150px ) rotateY(  -90deg );
+          transform: translateZ( -150px ) rotateY(  -90deg );
+}
+.flashcardContainer div.show-left {
+  -webkit-transform: translateZ( -150px ) rotateY(   90deg );
+     -moz-transform: translateZ( -150px ) rotateY(   90deg );
+       -o-transform: translateZ( -150px ) rotateY(   90deg );
+          transform: translateZ( -150px ) rotateY(   90deg );
+}
+.flashcardContainer div.show-top {
+  -webkit-transform: translateZ( -150px ) rotateX(  -90deg );
+     -moz-transform: translateZ( -150px ) rotateX(  -90deg );
+       -o-transform: translateZ( -150px ) rotateX(  -90deg );
+          transform: translateZ( -150px ) rotateX(  -90deg );
+}
+.flashcardContainer div.show-bottom {
+  -webkit-transform: translateZ( -150px ) rotateX(   90deg );
+     -moz-transform: translateZ( -150px ) rotateX(   90deg );
+       -o-transform: translateZ( -150px ) rotateX(   90deg );
+          transform: translateZ( -150px ) rotateX(   90deg );
 }

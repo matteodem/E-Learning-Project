@@ -1,0 +1,106 @@
+{% extends 'MatteoLearnBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('media/css/main.css') }}" type="text/css" />
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="row">
+    <div class="span12">
+      <h1><small>Learning </small>{{ cardbox.name }}</h1>
+    </div>
+  </div>
+  
+  <div id="learnRow" class="row">
+    <div class="span7">
+      {% for key, flash in flashcards %}
+      {% if key == 0 %}
+      <section class="flashcardContainer active" >
+        <div class="show-front">
+          <figure class="frontSide">
+            <h2><p>{{ flash.front }}</p></h2>
+          </figure>
+          <figure class="backSide"></figure>
+          <figure class="rightSide">
+            <h2><p>{{ flash.back }}</p></h2>
+            <p>{% if flash.declaration|length > 160 %} 
+                 {{ flash.declaration|slice(0, 160) }}...
+               {% else %}
+                 {{ flash.declaration }}
+               {% endif %}</p>
+          </figure>
+      {% else %}
+      <section class="hidden flashcardContainer">
+        <div class="show-front">
+          <figure class="frontSide">
+            <h2><p>{{ flash.front }}</p></h2>
+          </figure>
+          <figure class="backSide"></figure>
+          <figure class="rightSide">
+            <h2><p>{{ flash.back }}</p></h2>
+          </figure>
+      {% endif %}
+          <figure class="leftSide"></figure>
+          <figure class="topSide"></figure>
+          <figure class="bottomSide">
+            {# Cardbox Content #}
+            {% include 'MatteoLearnBundle:Cardbox:cardboxTable.html.twig' %}
+          </figure>
+        </div>
+      </section>
+      {% endfor %}
+      <div class="controls">
+        <button id="frontSideButton" class="btn btn-primary" value="show-front">&larr;</button>
+        <button id="backSideButton"  class="btn btn-primary" value="show-right">&rarr;</button>
+        <button id="cardboxButton"   class="btn btn-primary" value="show-bottom">&darr;</button>
+        <button id="prevCardButton"  class="btn">Previous Card</button>
+        <button id="nextCardButton"  class="btn">Next Card</button>
+      </div>
+    </div>
+    <div class="span5">
+      <div class="well hidden-phone">
+        <h3>How to use</h3>
+        {# Desktop Shortcuts / Mouse (Mobile) Usage #}
+        <div>
+          <h4>Keyboard / Mouse</h4>
+          <table class="table">
+            <tr>
+              <th>&larr; / a</th>
+              <th>&rarr; / d</th>
+              <th>&darr; / s</th>
+              <th>n</th>
+              <th>b</th>
+            </tr>
+            <tr>
+              <td>Front</td>
+              <td>Back</td>
+              <td>Overview</td>
+              <td>Next Card</td>
+              <td>Previous Card</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="completedDiv" class="row hidden">
+    <p>Congratulations, you finished this Cardbox!</p>
+  </div>
+  
+<div class="row">
+  <ul class="record_actions unstyled">
+      <li>
+          <a href="{{ path('learn_cardbox_show', { 'id': cardbox.id }) }}">
+              Back to the cardbox
+          </a>
+      </li>
+  </ul>
+</div>
+{% endblock content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript" src="{{ asset('media/js/learnCards.js') }}"></script>
+<script type="text/javascript" src="{{ asset('media/js/libs/jwerty.js') }}"></script>
+{% endblock %}

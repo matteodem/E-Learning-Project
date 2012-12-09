@@ -16,6 +16,29 @@ use Matteo\LearnBundle\Entity\Cardbox;
  */
 class FlashcardController extends Controller
 {
+    
+    /**
+     * The action created for learning the flashcards
+     *
+     */
+    public function learnAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $cardbox = $em->getRepository('MatteoLearnBundle:Cardbox')->find($id);
+
+        if (!$cardbox) {
+            throw $this->createNotFoundException('Unable to find Cardbox entity.');
+        }
+        
+        $flashcards = $em->getRepository('MatteoLearnBundle:Flashcard')->findFlashcardsWithCardbox($id);
+
+        return $this->render('MatteoLearnBundle:Flashcard:learn.html.twig', array(
+            'cardbox'      => $cardbox,
+            'flashcards'   => $flashcards,
+        ));
+    }
+    
     /**
      * Create Form adding or editing existing Flashcards to a specified cardbox.
      *
@@ -34,7 +57,7 @@ class FlashcardController extends Controller
         $flashcards = $em->getRepository('MatteoLearnBundle:Flashcard')->findFlashcardsWithCardbox($id);
         // If there aren't any, just display the form without any prerenderd forms
         if (!$flashcards) {
-            return $this->render('MatteoLearnBundle:Flashcard:editCards.html.twig', array(
+            return $this->render('MatteoLearnBundle:Flashcard:edit.html.twig', array(
                 'entity' => $entity,
                 'form'   => $newFlashcardForm->createView(),
                 'cardbox'=> $currentCardbox,
@@ -52,7 +75,7 @@ class FlashcardController extends Controller
             $forms[] = $form;
         }
         
-        return $this->render('MatteoLearnBundle:Flashcard:editCards.html.twig', array(
+        return $this->render('MatteoLearnBundle:Flashcard:edit.html.twig', array(
             'entity' => $entity,
             'forms'  => $forms,
             'form'   => $newFlashcardForm->createView(),
@@ -77,17 +100,16 @@ class FlashcardController extends Controller
         $flashcards = $em->getRepository('MatteoLearnBundle:Flashcard')->findFlashcardsWithCardbox($id);
         
         if ($flashcards) {
-            // Delete all existing entries
+            // Delete existing entries
             foreach ($flashcards as $flashcard) {
                 $em->remove($flashcard);
             }
         }
         
-        // Add all edited + new cards
+        // Add edited + new cards
         $newCards = $request->request->all();
-
+        
         foreach($newCards as $card) {
-            // Create new database entry
             $flashcard = new Flashcard();
             $flashcard->setFront($card['front']);
             $flashcard->setBack($card['back']);
@@ -101,13 +123,5 @@ class FlashcardController extends Controller
         $em->flush();
         
         return $this->redirect($this->generateUrl('learn_cardbox_show', array('id' => $id)));
-    }
-    
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
     }
 }

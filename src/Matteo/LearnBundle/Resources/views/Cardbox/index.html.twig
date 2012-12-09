@@ -22,7 +22,7 @@
             <td>{{ entity.difficulty }}</td>
             <td class="hidden-phone">{{ entity.frontside }}</td>
             <td class="hidden-phone">{{ entity.backside }}</td>
-            <td><button class="btn" href="#">Learn it</button></td>
+            <td><a href="{{ path('learn_cardbox_learn_flashcards', { 'id': entity.id }) }}"><button class="btn" >Learn it</button></a></td>
         </tr>
     {% endfor %}
     </tbody>

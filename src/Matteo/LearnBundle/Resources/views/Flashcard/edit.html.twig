@@ -6,7 +6,7 @@
 {% endblock stylesheets %}
 
 {% block content %}
-<h1>Flashcard Creation for '{{ cardbox.name }}'</h1>
+<h1>Editing Flashcards for "{{ cardbox.name }}"</h1>
 
 <form action="{{ path('learn_cardbox_create_flashcards', { 'id': cardbox.id }) }}" method="post" {{ form_enctype(form) }}
   id="addFlashcardsForm" >
@@ -78,5 +78,5 @@
 {% endblock content %}
 
 {% block custom_javascripts %}
-<script type="text/javascript" src="{{ asset('bundles/matteolearn/js/flashcard.js') }}"></script>
+<script type="text/javascript" src="{{ asset('media/js/flashcard.js') }}"></script>
 {% endblock %}
