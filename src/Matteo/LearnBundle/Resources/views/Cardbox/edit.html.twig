@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Cardbox edit</h1>
 
-<form action="{{ path('learn_cardbox_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<form action="{{ path('learn_cardbox_update', { 'id': entity.id, 'cardbox': entity.cardboxslug }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <p>
         <button type="submit">Edit</button>
@@ -17,7 +17,7 @@
         </a>
     </li>
     <li>
-        <form action="{{ path('learn_cardbox_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('learn_cardbox_delete', { 'id': entity.id, 'cardbox': entity.cardboxslug }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>

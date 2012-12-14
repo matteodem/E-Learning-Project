@@ -18,4 +18,22 @@ class CardboxRepository extends EntityRepository
                     ->createQuery('SELECT p FROM MatteoLearnBundle:Cardbox p WHERE p.is_private = 0 OR p.is_private IS NULL')
                     ->getResult();
     }
+    
+    public function findCardboxesWithCategoryId($categoryId)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.category = :category')
+            ->setParameter('category', $categoryId)
+            ->getQuery()
+            ->getResult();
+    }
+    
+    public function getIntroductionCardbox()
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.name = :name')
+            ->setParameter('name', 'Get Started')
+            ->getQuery()
+            ->getResult();
+    }
 }

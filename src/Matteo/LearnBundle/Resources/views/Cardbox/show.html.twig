@@ -12,7 +12,7 @@
         </a>
     </li>
     <li>
-        <a href="{{ path('learn_cardbox_edit', { 'id': cardbox.id }) }}">
+        <a href="{{ path('learn_cardbox_edit', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}">
             Edit Cardbox
         </a>
     </li>
@@ -24,12 +24,12 @@
     </li>
     {% endif %}
     <li>
-        <form action="{{ path('learn_cardbox_edit_flashcards', { 'id': cardbox.id }) }}" method="post">
+        <form action="{{ path('learn_cardbox_edit_flashcards', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}" method="post">
             <button class="btn" type="submit">Add / Edit Flashcards</button>
         </form>
     </li>
     <li>
-      <a href="{{ path('learn_cardbox_learn_flashcards', { 'id': cardbox.id }) }}"><button class="btn">Start learning</button></a>
+      <a href="{{ path('learn_cardbox_learn_flashcards', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}"><button class="btn">Start learning</button></a>
     </li>
 </ul>
 

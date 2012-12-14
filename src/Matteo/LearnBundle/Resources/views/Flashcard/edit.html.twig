@@ -8,7 +8,7 @@
 {% block content %}
 <h1>Editing Flashcards for "{{ cardbox.name }}"</h1>
 
-<form action="{{ path('learn_cardbox_create_flashcards', { 'id': cardbox.id }) }}" method="post" {{ form_enctype(form) }}
+<form action="{{ path('learn_cardbox_create_flashcards', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}" method="post" {{ form_enctype(form) }}
   id="addFlashcardsForm" >
   
   <div class="row">
@@ -69,7 +69,7 @@
 <div class="row">
   <ul class="record_actions unstyled">
       <li>
-          <a href="{{ path('learn_cardbox_show', { 'id': cardbox.id }) }}">
+          <a href="{{ path('learn_cardbox_show', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}">
               Back to the cardbox
           </a>
       </li>

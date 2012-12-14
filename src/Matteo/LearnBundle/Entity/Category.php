@@ -3,6 +3,7 @@
 namespace Matteo\LearnBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Matteo\LearnBundle\Utils\Slug as Slug;
 
 /**
  * Category
@@ -160,5 +161,10 @@ class Category
     public function getOverview()
     {
         return $this->overview;
+    }
+    
+    public function getCategorySlug()
+    {
+        return Slug::slugify($this->getName());
     }
 }

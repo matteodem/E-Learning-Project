@@ -3,6 +3,7 @@
 namespace Matteo\LearnBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Matteo\LearnBundle\Utils\Slug as Slug;
 
 /**
  * Cardbox
@@ -272,5 +273,15 @@ class Cardbox
     public function setSlugValue()
     {
         // Add your code here
+    }
+    
+    public function getCardboxSlug()
+    {
+        return Slug::slugify($this->getName());
+    }
+
+    public function getCategorySlug()
+    {
+        return Slug::slugify($this->getCategory());
     }
 }

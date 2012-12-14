@@ -32,6 +32,27 @@ class CardboxController extends Controller
             'entities' => $entities,
         ));
     }
+    
+    /**
+     * Lists all Cardbox entities within one Category
+     *
+    */
+    public function categoryAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $entities = $em->getRepository('MatteoLearnBundle:Cardbox')->findCardboxesWithCategoryId($id);
+        
+        if ($entities) {
+            $category = $entities[0]->getCategory();
+        }
+        
+        
+        return $this->render('MatteoLearnBundle:Cardbox:index.html.twig', array(
+            'entities' => $entities,
+            'category' => $category,
+        ));
+    }
 
     /**
      * Finds and displays a Cardbox entity.
@@ -162,6 +183,15 @@ class CardboxController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('MatteoLearnBundle:Cardbox')->find($id);
+            
+            $flashcards = $em->getRepository('MatteoLearnBundle:Flashcard')->findFlashcardsWithCardbox($id);
+
+            if ($flashcards) {
+                // Delete existing entries
+                foreach ($flashcards as $flashcard) {
+                    $em->remove($flashcard);
+                }
+            }
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Cardbox entity.');

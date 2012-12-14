@@ -2,8 +2,12 @@ learn_cardbox:
     pattern:  /
     defaults: { _controller: "MatteoLearnBundle:Cardbox:index" }
 
+learn_cardbox_show_category:
+    pattern: /with-category/{id}/{category}
+    defaults: { _controller: "MatteoLearnBundle:Cardbox:category" }
+
 learn_cardbox_show:
-    pattern:  /{id}/show
+    pattern:  /{id}/{cardbox}/show
     defaults: { _controller: "MatteoLearnBundle:Cardbox:show" }
 
 learn_cardbox_new:
@@ -16,29 +20,29 @@ learn_cardbox_create:
     requirements: { _method: post }
 
 learn_cardbox_edit:
-    pattern:  /{id}/edit
+    pattern:  /{id}/{cardbox}/edit
     defaults: { _controller: "MatteoLearnBundle:Cardbox:edit" }
 
 learn_cardbox_update:
-    pattern:  /{id}/update
+    pattern:  /{id}/{cardbox}/update
     defaults: { _controller: "MatteoLearnBundle:Cardbox:update" }
     requirements: { _method: post }
 
 learn_cardbox_delete:
-    pattern:  /{id}/delete
+    pattern:  /{id}/{cardbox}/delete
     defaults: { _controller: "MatteoLearnBundle:Cardbox:delete" }
     requirements: { _method: post }
     
 learn_cardbox_edit_flashcards:
-    pattern:  /{id}/edit-flashcards
+    pattern:  /{id}/{cardbox}/edit-flashcards
     defaults: { _controller: "MatteoLearnBundle:Flashcard:addOrEdit" }
     requirements: { _method: post }
     
 learn_cardbox_create_flashcards:
-    pattern:  /{id}/create-flashcards
+    pattern:  /{id}/{cardbox}/create-flashcards
     defaults: { _controller: "MatteoLearnBundle:Flashcard:update" }
     requirements: { _method: post }
     
 learn_cardbox_learn_flashcards:
-    pattern:  /{id}/learn
+    pattern:  /{id}/{cardbox}/learn
     defaults: { _controller: "MatteoLearnBundle:Flashcard:learn" }

@@ -3,7 +3,7 @@ learn_category:
     defaults: { _controller: "MatteoLearnBundle:Category:index" }
 
 learn_category_show:
-    pattern:  /{id}/show
+    pattern:  /{id}/{category}/show
     defaults: { _controller: "MatteoLearnBundle:Category:show" }
 
 learn_category_new:
@@ -16,15 +16,15 @@ learn_category_create:
     requirements: { _method: post }
 
 learn_category_edit:
-    pattern:  /{id}/edit
+    pattern:  /{id}/{category}/edit
     defaults: { _controller: "MatteoLearnBundle:Category:edit" }
 
 learn_category_update:
-    pattern:  /{id}/update
+    pattern:  /{id}/{category}/update
     defaults: { _controller: "MatteoLearnBundle:Category:update" }
     requirements: { _method: post }
 
 learn_category_delete:
-    pattern:  /{id}/delete
+    pattern:  /{id}/{category}/delete
     defaults: { _controller: "MatteoLearnBundle:Category:delete" }
     requirements: { _method: post }

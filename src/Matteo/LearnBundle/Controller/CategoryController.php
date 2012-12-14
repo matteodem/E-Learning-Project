@@ -48,6 +48,6 @@ class CategoryController extends Controller
 
         return $this->render('MatteoLearnBundle:Category:show.html.twig', array(
             'entity'      => $entity,
-            ));
+        ));
     }
 }

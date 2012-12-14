@@ -1,7 +1,11 @@
 {% extends 'MatteoLearnBundle::layout.html.twig' %}
 
 {% block content %}
-<h1>Cardboxes</h1>
+{% if category is defined %}
+  <h1>Cardboxes <small>({{ category.name }})</small></h1>
+{% else %}
+  <h1>All Cardboxes</h1>
+{% endif %}
 
 <table class="records_list table">
     <thead>
@@ -17,12 +21,12 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('learn_cardbox_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+            <td><a href="{{ path('learn_cardbox_show', { 'id': entity.id, 'cardbox': entity.cardboxslug }) }}">{{ entity.name }}</a></td>
             <td>{{ entity.category }}</td>
             <td>{{ entity.difficulty }}</td>
             <td class="hidden-phone">{{ entity.frontside }}</td>
             <td class="hidden-phone">{{ entity.backside }}</td>
-            <td><a href="{{ path('learn_cardbox_learn_flashcards', { 'id': entity.id }) }}"><button class="btn" >Learn it</button></a></td>
+            <td><a href="{{ path('learn_cardbox_learn_flashcards', { 'id': entity.id, 'cardbox': entity.cardboxslug }) }}"><button class="btn" >Learn it</button></a></td>
         </tr>
     {% endfor %}
     </tbody>
