@@ -58,7 +58,7 @@ $(document).ready(function(){
         $('section.active div').addClass($(thisObj).val());
     }
     
-    // Keyboard Listeners for switching beetween cards (n = next, b = previous)
+    // Keyboard Listeners for switching beetween sides of the cube / cards (n = next, b = previous)
     $('section.active figure').each(function() {
         createKeyboardBindings(this);
     });

@@ -31,6 +31,20 @@ $(document).ready(function(){
       return newAttribute;
   }
   
+  function addNewRow(thisObj) {
+      var emptyRow = $('#hiddenCardRow').html();
+
+      $('.newCardRow').before('<tr class="newcardRow cardRow">' + emptyRow + '</tr>');
+      $('.newCardRow').last().children().children().each(function() { 
+          var oldId = $(thisObj).attr('id');
+          var oldName = $(thisObj).attr('name');
+          
+          $(thisObj).attr('id', getNewAttribute(oldId));
+          $(thisObj).attr('name', getNewAttribute(oldName));
+      });
+      $('tr.cardRow:last input.front').focus();
+  }
+  
   /* Keeping track of the flashcard values */
   $('input').live('keyup', function(){
       $(this).attr('value', $(this).val());
@@ -65,17 +79,17 @@ $(document).ready(function(){
   
   // The add a new flashcard button
   $('.createNewFlashcard').live("click", function(e){
-      var emptyRow = $('#hiddenCardRow').html();
-
-      $('.newCardRow').before('<tr class="newcardRow cardRow">' + emptyRow + '</tr>');
-      $('.newCardRow').last().children().children().each(function() { 
-          var oldId = $(this).attr('id');
-          var oldName = $(this).attr('name');
-          
-          $(this).attr('id', getNewAttribute(oldId));
-          $(this).attr('name', getNewAttribute(oldName));
-      });  
+      addNewRow(this);
       e.preventDefault();
+  });
+  
+  // Tabbing new flashcard rows (faster writing)
+  $('tr.cardRow:last textarea.flashTextarea').live("keydown", function(e) {
+      var code = e.keyCode || e.which;
+      if (9 === code) {
+          addNewRow(this);
+          e.preventDefault();
+      }
   });
   
   /* When submitting the form */
