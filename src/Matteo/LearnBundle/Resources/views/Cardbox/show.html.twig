@@ -1,21 +1,13 @@
 {% extends 'MatteoLearnBundle::layout.html.twig' %}
 
 {% block content %}
-<h1>Cardbox</h1>
-
+<h1>Cardbox
+<a href="{{ path('learn_cardbox_edit', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}">
+    <i class="icon-edit"></i>
+</a></h1>
 {% include 'MatteoLearnBundle:Cardbox:cardboxTable.html.twig' %}
 
 <ul class="record_actions unstyled">
-    <li>
-        <a href="{{ path('learn_cardbox') }}">
-            Back to the Overview
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('learn_cardbox_edit', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}">
-            Edit Cardbox
-        </a>
-    </li>
     {% if cardbox.isprivate == 1 %}
     <li>
       <div class="alert">
@@ -29,7 +21,7 @@
         </form>
     </li>
     <li>
-      <a href="{{ path('learn_cardbox_learn_flashcards', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}"><button class="btn">Start learning</button></a>
+      <a href="{{ path('learn_cardbox_learn_flashcards', { 'id': cardbox.id, 'cardbox': cardbox.cardboxslug }) }}"><button class="btn btn-primary">Start learning</button></a>
     </li>
 </ul>
 
@@ -39,8 +31,8 @@
 <table class="records_list table table-hover">
     <thead>
         <tr>
-            <th>Front ({{ cardbox.frontside }})</th>
-            <th>Back ({{ cardbox.backside }})</th>
+            <th>{{ cardbox.frontside }}</th>
+            <th>{{ cardbox.backside }}</th>
         </tr>
     </thead>
     <tbody>
