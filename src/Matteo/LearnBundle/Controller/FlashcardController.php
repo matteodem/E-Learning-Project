@@ -88,7 +88,7 @@ class FlashcardController extends Controller
      * Create Action for a specified cardbox.
      *
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request, $id, $cardbox)
     {
         $em = $this->getDoctrine()->getManager();
         
@@ -122,6 +122,6 @@ class FlashcardController extends Controller
         // Finally flush everything
         $em->flush();
         
-        return $this->redirect($this->generateUrl('learn_cardbox_show', array('id' => $id)));
+        return $this->redirect($this->generateUrl('learn_cardbox_show', array('id' => $id, 'cardbox' => $cardbox)));
     }
 }

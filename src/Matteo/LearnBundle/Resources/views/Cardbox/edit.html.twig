@@ -13,12 +13,8 @@
     </p>
 </form>
 
-<ul class="record_actions">
-    <li>
-        <form action="{{ path('learn_cardbox_delete', { 'id': entity.id, 'cardbox': entity.cardboxslug }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button class="btn btn-danger" type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+<form action="{{ path('learn_cardbox_delete', { 'id': entity.id, 'cardbox': entity.cardboxslug }) }}" method="post">
+    {{ form_widget(delete_form) }}
+    <button class="btn btn-danger" type="submit">Delete</button>
+</form>
 {% endblock content %}

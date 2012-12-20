@@ -106,7 +106,7 @@ class CardboxController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('learn_cardbox_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('learn_cardbox_show', array('id' => $entity->getId(), 'cardbox' => $entity->getCardboxSlug())));
         }
 
         return $this->render('MatteoLearnBundle:Cardbox:new.html.twig', array(
