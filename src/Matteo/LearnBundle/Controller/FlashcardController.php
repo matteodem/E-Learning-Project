@@ -113,7 +113,10 @@ class FlashcardController extends Controller
             $flashcard = new Flashcard();
             $flashcard->setFront($card['front']);
             $flashcard->setBack($card['back']);
-            $flashcard->setDeclaration($card['declaration']);
+            // Since it's optional
+            if (isset($card['declaration'])) {
+                $flashcard->setDeclaration($card['declaration']);
+            }
             $flashcard->setCardbox($currentCardbox);
             
             $em->persist($flashcard);
