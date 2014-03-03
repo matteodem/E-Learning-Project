@@ -15,29 +15,29 @@
   <div id="learnRow" class="row">
     <div class="span7">
       {% for key, flash in flashcards %}
-      {% if key == 0 %}
-      <section class="flashcardContainer active" >
-        <div class="show-front">
-          <figure class="frontSide">
-            <h2>{{ flash.front }}</h2>
-          </figure>
-          <figure class="backSide"></figure>
-          <figure class="rightSide">
-            <h2>{{ flash.back }}</h2>
-            <p>{{ flash.declaration }}</p>
-          </figure>
-      {% else %}
-      <section class="hidden flashcardContainer">
-        <div class="show-front">
-          <figure class="frontSide">
-            <h2><p>{{ flash.front }}</p></h2>
-          </figure>
-          <figure class="backSide"></figure>
-          <figure class="rightSide">
-            <h2><p>{{ flash.back }}</p></h2>
-            <p>{{ flash.declaration }}</p>
-          </figure>
-      {% endif %}
+          {% if key == 0 %}
+          <section class="flashcardContainer active" >
+            <div class="show-front">
+              <figure class="frontSide">
+                <h2>{{ flash.front }}</h2>
+              </figure>
+              <figure class="backSide"></figure>
+              <figure class="rightSide">
+                <h2>{{ flash.back }}</h2>
+                <p>{{ flash.declaration }}</p>
+              </figure>
+          {% else %}
+          <section class="hidden flashcardContainer">
+            <div class="show-front">
+              <figure class="frontSide">
+                <h2><p>{{ flash.front }}</p></h2>
+              </figure>
+              <figure class="backSide"></figure>
+              <figure class="rightSide">
+                <h2><p>{{ flash.back }}</p></h2>
+                <p>{{ flash.declaration }}</p>
+              </figure>
+          {% endif %}
           <figure class="leftSide"></figure>
           <figure class="topSide"></figure>
           <figure class="bottomSide">

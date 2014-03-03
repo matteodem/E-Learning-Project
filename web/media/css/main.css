@@ -17,6 +17,15 @@
           perspective: 1000px;
 }
 
+.content .form-signin {
+    padding: 19px 29px 29px;
+    max-width: 251px;
+}
+
+.content .form-signin .row {
+    margin: 10px;
+}
+
 .flashcardContainer div {
   width: 100%;
   height: 100%;
